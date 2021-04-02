@@ -24,4 +24,4 @@ while True:
   time.sleep(1)
 
 print("Ending threads...")
-blink_running = False
+#blink_running = False

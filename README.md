@@ -17,3 +17,5 @@
 ```$>cp main.py boot.py and app \pyboard```
 --tag a release (else it won't work)
 - restart you esp and it should start blinking
+- If the gods are on your side the code in start.py will execute and you can start building your project out from there.
+When your esp32 starts up it will check git for updates and run whatever is in the start.py 

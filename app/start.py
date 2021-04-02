@@ -11,6 +11,7 @@ def blink(delay):
          time.sleep(delay)
          led.value(0)
 
+
 print("Starting other tasks...")
 th.start_new_thread(blink, (0.5))
 

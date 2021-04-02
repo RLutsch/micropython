@@ -9,10 +9,10 @@ def blink(delay):
      while blink_running:
          led.value(not led.value())
          time.sleep(delay)
-     led.value(0)
+         led.value(0)
 
 print("Starting other tasks...")
-th.start_new_thread(blink, (0.5,))
+th.start_new_thread(blink, (0.5))
 
 count = 0
 while True:

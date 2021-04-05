@@ -5,6 +5,7 @@ except:
 
 from machine import Pin
 import network
+import app.secrets
 
 import esp
 esp.osdebug(None)
@@ -12,8 +13,8 @@ esp.osdebug(None)
 import gc
 gc.collect()
 
-ssid = secrets.WIFI_SSID
-password = secrets.WIFI_PASSWORD
+ssid = app.secrets.WIFI_SSID
+password = app.secrets.WIFI_PASSWORD
 
 station = network.WLAN(network.STA_IF)
 

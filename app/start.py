@@ -3,7 +3,9 @@ try:
 except:
   import socket
 
-from machine import Pin
+from app.mp_i2c_lcd1602 import LCD1602
+from time import sleep_ms
+from machine import I2C, Pin
 import network
 import app.secrets
 
@@ -20,17 +22,21 @@ station = network.WLAN(network.STA_IF)
 
 station.active(True)
 station.connect(ssid, password)
+LCD.puts("I2C LCD1602")
 
 while station.isconnected() == False:
   pass
 
+LCD.puts("Connection successful")
 print('Connection successful')
+LCD.puts(station.ifconfig())
+sleep_ms(10000)
 print(station.ifconfig())
 
 # ESP32 GPIO 26
 relay = Pin(2, Pin.OUT)
-
-
+i2c = I2C(1, sda=Pin(9), scl=Pin(10))
+LCD = LCD1602(i2c)
 
 
 def web_page():
@@ -85,15 +91,11 @@ while True:
     print('Connection closed')
 
 
-from machine import I2C, Pin
-from mp_i2c_lcd1602 import LCD1602
-from time import sleep_ms
 
-i2c = I2C(1, sda=Pin(9), scl=Pin(10))
 
-LCD = LCD1602(i2c)
 
-LCD.puts("I2C LCD1602")
+
+
 n = 0
 while 1:
     LCD.puts(n, 0, 1)

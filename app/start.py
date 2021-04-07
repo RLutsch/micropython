@@ -14,6 +14,8 @@ esp.osdebug(None)
 
 import gc
 gc.collect()
+i2c = I2C(1, sda=Pin(22), scl=Pin(23))
+LCD = LCD1602(i2c, i2c.scan()[0])
 
 ssid = app.secrets.WIFI_SSID
 password = app.secrets.WIFI_PASSWORD
@@ -22,12 +24,14 @@ station = network.WLAN(network.STA_IF)
 
 station.active(True)
 station.connect(ssid, password)
-LCD.puts("I2C LCD1602")
+LCD.puts("wifi active")
+sleep_ms(10000)
 
 while station.isconnected() == False:
   pass
 
 LCD.puts("Connection successful")
+sleep_ms(10000)
 print('Connection successful')
 LCD.puts(station.ifconfig())
 sleep_ms(10000)
@@ -35,8 +39,7 @@ print(station.ifconfig())
 
 # ESP32 GPIO 26
 relay = Pin(2, Pin.OUT)
-i2c = I2C(1, sda=Pin(9), scl=Pin(10))
-LCD = LCD1602(i2c)
+
 
 
 def web_page():

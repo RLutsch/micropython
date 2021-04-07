@@ -24,7 +24,7 @@ station = network.WLAN(network.STA_IF)
 
 station.active(True)
 station.connect(ssid, password)
-LCD.puts("wifi active")
+LCD.puts("Skattie it's working!")
 sleep_ms(10000)
 
 while station.isconnected() == False:
@@ -92,12 +92,6 @@ while True:
   except OSError as e:
     conn.close()
     print('Connection closed')
-
-
-
-
-
-
 
 n = 0
 while 1:

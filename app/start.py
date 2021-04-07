@@ -35,7 +35,7 @@ print(station.ifconfig())
 
 # ESP32 GPIO 26
 relay = Pin(2, Pin.OUT)
-i2c = I2C(1, sda=Pin(9), scl=Pin(10))
+i2c = I2C(1, sda=Pin(22), scl=Pin(23))
 LCD = LCD1602(i2c)
 
 

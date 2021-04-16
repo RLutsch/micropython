@@ -27,6 +27,8 @@ station.connect(ssid, password)
 LCD.puts("App started!")
 sleep_ms(10000)
 
+exit(1)
+
 while station.isconnected() == False:
   pass
 
@@ -63,6 +65,7 @@ def web_page():
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
+
 
 while True:
   try:

@@ -89,6 +89,7 @@ while True:
     conn.send('Connection: close\n\n')
     conn.sendall(response)
     conn.close()
+    exit(1)
   except OSError as e:
     conn.close()
     print('Connection closed')

@@ -24,7 +24,7 @@ station = network.WLAN(network.STA_IF)
 
 station.active(True)
 station.connect(ssid, password)
-LCD.puts("Skattie it's working!")
+LCD.puts("App started!")
 sleep_ms(10000)
 
 while station.isconnected() == False:

@@ -1,5 +1,6 @@
 - install micropython firmware\
-- Get your usb device id\ 
+
+- Get your usb device id\
 ```$>ls /dev |grep usb```\
 ```$>pip install esptool```\
 ```$>esptool.py --port /dev/ttyUSB0 erase_flash``` *change /dev/(your usb device)\
@@ -18,4 +19,4 @@
 --tag a release (else it won't work)
 - restart you esp and it should start blinking
 - If the gods are on your side the code in start.py will execute and you can start building your project out from there.
-When your esp32 starts up it will check git for updates and run whatever is in the start.py 
+When your esp32 starts up it will check git for updates and run whatever is in the start.py
